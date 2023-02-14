@@ -15,7 +15,9 @@ const saltRounds = parseInt(process.env.SALT_ROUNDS);
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost:27017/quiz");
+mongoose.connect("mongodb+srv://Sudarshan7666:0NQNaxKr6RvaytB4@cluster0.jpkafyq.mongodb.net/quiz?retryWrites=true&w=majority").then( (data)=>{
+  console.log(`mongodb connected to ${data.connection.name}`)
+})
 
 app.post("/api/register", (req, res) => {
   try {
